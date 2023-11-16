@@ -1,0 +1,695 @@
+//to draw a pixal
+#include<graphics.h>
+#include<conio.h>
+void main(){
+int gd = DETECT, gm;
+int graph (&gd,&gm,"c:\\TurboC3\\bgi");
+put pixal(25,25,RED);
+grtch();
+closegraph();}
+
+//to draw a line
+#include<graphics.h>
+#include<conio.h>
+
+void main(){
+int gd = DETECT, gm;
+int graph (&gd,&gm,"c:\\TurboC3\\bgi");
+for(i=0;i<=100;i++)
+{
+put pixal(25+i,25+i,RED);
+}
+getch();
+closegraph();}
+
+
+//write a program to draw a ractangle
+#include<graphics.h>
+#include<conio.h>
+
+void main(){
+int gd = DETECT, gm;
+int graph (&gd,&gm,"c:\\TurboC3\\bgi");
+int i,j,k,l;
+for(i=0;i<=100;i++)
+{
+put pixal(25+i,25+i,RED);
+}
+for(j=0;j<200;j++)
+{
+put pixal(25,25+j,RED);
+}
+for(k=0;k<100;k++)
+{
+put pixal(25+k,225,RED);
+}
+for(l=0;l<200;l++)
+{
+put pixal(125,125+l,RED);
+}
+getch();
+close graph();
+}
+
+
+//wap to show a moving 2D cartoon in rainy season:-
+#include<graphics.h>
+#include<conio.h>
+
+#define screenwidth get max x()
+#define screenwidth get max y()
+#define ground y screen Height * 0.75
+
+int ldisp=0;
+void DrawMan and umbralla(int x, int ldisp)
+{
+//head
+circle(x,ground y - 90,10);
+line(x,ground x - 80,x,ground y-30);
+
+//hand
+line(x, ground y-70, x+10, ground y-60);
+line(y, ground y-65, x+10, ground y-55);
+line(x+10, ground y-60, x+20, ground y-70);
+line(x+10, ground y-55, x+20, ground y-70);
+
+//legs
+line(x, ground y-30, x+ldisp, ground y);
+line(x, ground y-30, x-ldisp, ground y);
+
+//umbrella
+piesline(x+20, ground y-120,0,180,40);
+line(x+20, ground y-120, x+20, ground y-70);
+}
+void Rain(int x)
+{
+int i,rx,ry;
+for(i=0;i<400;i++)
+{
+rx=rand()%screenwidth;
+ry=rand()%screenwidth;
+if(ry<ground y-4)
+{if(ry<ground y -120||(ry>ground y-110 &&(rx<x-20||rx>x+60)));
+line(rx,ry,rx+0.5,ry+4);
+}
+}
+}
+void main()
+{
+int gd = DETECT, gm, x=0;
+int graph (&gd,&gm,"c:\\TurboC3\\bgi");
+while(!kblit())
+{ line(0,ground 4, screenwidth, ground y);
+rain(x);
+ldisp = (ldisp+2) % 20;
+Draw Man and Umbralla (x,ldisp);
+dilay(75);
+cleardevice();
+x=(x+2)%screenwidth;
+}
+}
+
+
+//how to draw a moving car
+#include <graphics.h>
+#include <stdio.h>
+ 
+// Function to draw moving car
+void draw_moving_car(void) {
+ 
+    int i, j = 0, gd = DETECT, gm;
+    initgraph(&gd, &gm, "");
+ 
+    for (i = 0; i <= 420; i = i + 10) {
+ 
+     
+        setcolor(RED);
+ 
+        // These lines for bonnet and 
+        // body of car
+        line(0 + i, 300, 210 + i, 300);
+        line(50 + i, 300, 75 + i, 270);
+        line(75 + i, 270, 150 + i, 270);
+        line(150 + i, 270, 165 + i, 300);
+        line(0 + i, 300, 0 + i, 330);
+        line(210 + i, 300, 210 + i, 330);
+ 
+        // For left wheel of car
+        circle(65 + i, 330, 15);
+        circle(65 + i, 330, 2);
+ 
+        // For right wheel of car
+        circle(145 + i, 330, 15);
+        circle(145 + i, 330, 2);
+ 
+        // Line left of left wheel
+        line(0 + i, 330, 50 + i, 330);
+ 
+        // Line middle of both wheel
+        line(80 + i, 330, 130 + i, 330);
+ 
+        // Line right of right wheel
+        line(210 + i, 330, 160 + i, 330);
+ 
+        delay(100);
+        setcolor(BLACK);
+         
+        // Lines for bonnet and body of car
+        line(0 + i, 300, 210 + i, 300);
+        line(50 + i, 300, 75 + i, 270);
+        line(75 + i, 270, 150 + i, 270);
+        line(150 + i, 270, 165 + i, 300);
+        line(0 + i, 300, 0 + i, 330);
+        line(210 + i, 300, 210 + i, 330);
+ 
+        // For left wheel of car
+        circle(65 + i, 330, 15);
+        circle(65 + i, 330, 2);
+        circle(145 + i, 330, 15);
+        circle(145 + i, 330, 2);
+
+        line(0 + i, 330, 50 + i, 330);
+        line(80 + i, 330, 130 + i, 330);
+        line(210 + i, 330, 160 + i, 330);
+    }
+ 
+    getch();
+ 
+    closegraph();
+}
+ 
+// Driver code
+int main()
+{
+    draw_moving_car();
+ 
+    return 0;
+}
+
+
+
+// C++ program for DDA line generation 
+  
+int main(void) {
+  /* request auto detection */
+  int gdriver = DETECT, gmode, errorcode;
+ 
+  /* initialize graphics and local variables */
+  initgraph( & gdriver, & gmode, "C:\\tc\\bgi");
+ 
+  cout << "\n Enter X1,Y1,X2,Y2";
+  int x1, y1, x2, y2;
+  cin >> x1 >> y1 >> x2 >> y2;
+ 
+  int dx = x2 - x1;
+  int dy = y2 - y1;
+  int length;
+  if (dx >= dy)
+    length = dx;
+  else
+    length = dy;
+  dx = dx / length;
+  dy = dy / length;
+  int sx;
+  if (dx >= 0)
+    sx = 1;
+  else
+    sx = -1;
+  int sy;
+  if (dy >= 0)
+    sy = 1;
+  else
+    sy = -1;
+  float x = x1 + 0.5 * (sx);
+  float y = y1 + 0.5 * (sy);
+  int i = 0;
+  while (i <= length) {
+    putpixel(int(x), int(y), 15);
+    x = x + dx;
+    y = y + dy;
+    i = i + 1;
+  }
+ 
+  /* clean up */
+  getch();
+  closegraph();
+  return 0;
+}
+
+
+//bresenhamn  line draw
+#include<iostream.h>
+#include<graphics.h>
+ 
+void drawline(int x0, int y0, int x1, int y1)
+{
+    int dx, dy, p, x, y;
+ 
+dx=x1-x0;
+dy=y1-y0;
+ 
+x=x0;
+y=y0;
+ 
+p=2*dy-dx;
+ 
+while(x<x1)
+{
+if(p>=0)
+{
+putpixel(x,y,7);
+y=y+1;
+p=p+2*dy-2*dx;
+}
+else
+{
+putpixel(x,y,7);
+p=p+2*dy;
+}
+x=x+1;
+}
+}
+ 
+int main()
+{
+int gdriver=DETECT, gmode, error, x0, y0, x1, y1;
+initgraph(&gdriver, &gmode, "c:\\turboc3\\bgi");
+ 
+cout<<"Enter co-ordinates of first point: ";
+cin>>x0>>y0;
+ 
+cout<<"Enter co-ordinates of second point: ";
+cin>>x1>>y1;
+drawline(x0, y0, x1, y1);
+ 
+return 0;}
+
+
+
+// Mid-Point Circle Drawing Algorithm
+#include<iostream>
+using namespace std;
+ 
+// Implementing Mid-Point Circle Drawing Algorithm
+void midPointCircleDraw(int x_centre, int y_centre, int r)
+{
+    int x = r, y = 0;
+     
+    // Printing the initial point on the axes 
+    // after translation
+    cout << "(" << x + x_centre << ", " << y + y_centre << ") ";
+     
+    // When radius is zero only a single
+    // point will be printed
+    if (r > 0)
+    {
+        cout << "(" << x + x_centre << ", " << -y + y_centre << ") ";
+        cout << "(" << y + x_centre << ", " << x + y_centre << ") ";
+        cout << "(" << -y + x_centre << ", " << x + y_centre << ")\n";
+    }
+     
+    // Initialising the value of P
+    int P = 1 - r;
+    while (x > y)
+    { 
+        y++;
+         
+        // Mid-point is inside or on the perimeter
+        if (P <= 0)
+            P = P + 2*y + 1;
+        // Mid-point is outside the perimeter
+        else
+        {
+            x--;
+            P = P + 2*y - 2*x + 1;
+        }
+         
+        // All the perimeter points have already been printed
+        if (x < y)
+            break;
+         
+
+        cout << "(" << x + x_centre << ", " << y + y_centre << ") ";
+        cout << "(" << -x + x_centre << ", " << y + y_centre << ") ";
+        cout << "(" << x + x_centre << ", " << -y + y_centre << ") ";
+        cout << "(" << -x + x_centre << ", " << -y + y_centre << ")\n";
+         
+
+        if (x != y)
+        {
+            cout << "(" << y + x_centre << ", " << x + y_centre << ") ";
+            cout << "(" << -y + x_centre << ", " << x + y_centre << ") ";
+            cout << "(" << y + x_centre << ", " << -x + y_centre << ") ";
+            cout << "(" << -y + x_centre << ", " << -x + y_centre << ")\n";
+        }
+    }
+}
+ 
+// Driver code
+int main()
+{
+    // To draw a circle of radius 3 centered at (0, 0)
+    midPointCircleDraw(0, 0, 3);
+    return 0;
+}
+
+
+
+//boundy fill algorithm
+#include<iostream.h>
+#include<graphics.h>
+#include<dos.h>
+ 
+void boundaryfill(int x,int y,int f_color,int b_color)
+{
+if(getpixel(x,y)!=b_color && getpixel(x,y)!=f_color)
+{
+putpixel(x,y,f_color);
+boundaryfill(x+1,y,f_color,b_color);
+boundaryfill(x,y+1,f_color,b_color);
+boundaryfill(x-1,y,f_color,b_color);
+boundaryfill(x,y-1,f_color,b_color);
+}
+}
+//getpixel(x,y) gives the color of specified pixel
+ 
+int main()
+{
+int gm,gd=DETECT,radius;
+int x,y;
+cout<<"Enter x and y positions for circle\n";
+cin>>x>>y;
+cout<<"Enter radius of circle\n";
+cin>>radius;
+initgraph(&gd,&gm,"c:\\turboc3\\bgi");
+circle(x,y,radius);
+boundaryfill(x,y,4,15);
+delay(5000);
+closegraph();
+return 0;}
+
+
+//// C++ implementation of the approach
+#include <bits/stdc++.h>
+using namespace std;
+ 
+// Function that returns true if
+// the given pixel is valid
+bool isValid(int screen[][8], int m, int n, int x, int y,
+             int prevC, int newC)
+{
+    if (x < 0 || x >= m || y < 0 || y >= n
+        || screen[x][y] != prevC || screen[x][y] == newC)
+        return false;
+    return true;
+}
+ 
+// FloodFill function
+void floodFill(int screen[][8], int m, int n, int x, int y,
+               int prevC, int newC)
+{
+    queue<pair<int, int> > queue;
+ 
+    // Append the position of starting
+    // pixel of the component
+    pair<int, int> p(x, y);
+    queue.push(p);
+ 
+    // Color the pixel with the new color
+    screen[x][y] = newC;
+ 
+    // While the queue is not empty i.e. the
+    // whole component having prevC color
+    // is not colored with newC color
+    while (queue.size() > 0) {
+        // Dequeue the front node
+        pair<int, int> currPixel = queue.front();
+        queue.pop();
+ 
+        int posX = currPixel.first;
+        int posY = currPixel.second;
+ 
+        // Check if the adjacent
+        // pixels are valid
+        if (isValid(screen, m, n, posX + 1, posY, prevC,
+                    newC)) {
+            // Color with newC
+            // if valid and enqueue
+            screen[posX + 1][posY] = newC;
+            p.first = posX + 1;
+            p.second = posY;
+            queue.push(p);
+        }
+ 
+        if (isValid(screen, m, n, posX - 1, posY, prevC,
+                    newC)) {
+            screen[posX - 1][posY] = newC;
+            p.first = posX - 1;
+            p.second = posY;
+            queue.push(p);
+        }
+ 
+        if (isValid(screen, m, n, posX, posY + 1, prevC,
+                    newC)) {
+            screen[posX][posY + 1] = newC;
+            p.first = posX;
+            p.second = posY + 1;
+            queue.push(p);
+        }
+ 
+        if (isValid(screen, m, n, posX, posY - 1, prevC,
+                    newC)) {
+            screen[posX][posY - 1] = newC;
+            p.first = posX;
+            p.second = posY - 1;
+            queue.push(p);
+        }
+    }
+}
+ 
+int main()
+{
+    int screen[][8] = { { 1, 1, 1, 1, 1, 1, 1, 1 },
+                        { 1, 1, 1, 1, 1, 1, 0, 0 },
+                        { 1, 0, 0, 1, 1, 0, 1, 1 },
+                        { 1, 2, 2, 2, 2, 0, 1, 0 },
+                        { 1, 1, 1, 2, 2, 0, 1, 0 },
+                        { 1, 1, 1, 2, 2, 2, 2, 0 },
+                        { 1, 1, 1, 1, 1, 2, 1, 1 },
+                        { 1, 1, 1, 1, 1, 2, 2, 1 } };
+ 
+    // Row of the display
+    int m = 8;
+ 
+    // Column of the display
+    int n = 8;
+ 
+    // Co-ordinate provided by the user
+    int x = 4;
+    int y = 4;
+ 
+    // Current color at that co-ordinate
+    int prevC = screen[x][y];
+ 
+    // New color that has to be filled
+    int newC = 3;
+    floodFill(screen, m, n, x, y, prevC, newC);
+ 
+    // Printing the updated screen
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            cout << screen[i][j] << " ";
+        }
+        cout << endl;
+    }
+ 
+    return 0;
+}
+ 
+
+
+/ C++ program to implement Cohen Sutherland algorithm
+// for line clipping.
+#include <iostream>
+using namespace std;
+ 
+// Defining region codes
+const int INSIDE = 0; // 0000
+const int LEFT = 1; // 0001
+const int RIGHT = 2; // 0010
+const int BOTTOM = 4; // 0100
+const int TOP = 8; // 1000
+ 
+// Defining x_max, y_max and x_min, y_min for
+// clipping rectangle. Since diagonal points are
+// enough to define a rectangle
+const int x_max = 10;
+const int y_max = 8;
+const int x_min = 4;
+const int y_min = 4;
+ 
+// Function to compute region code for a point(x, y)
+int computeCode(double x, double y)
+{
+    // initialized as being inside
+    int code = INSIDE;
+ 
+    if (x < x_min) // to the left of rectangle
+        code |= LEFT;
+    else if (x > x_max) // to the right of rectangle
+        code |= RIGHT;
+    if (y < y_min) // below the rectangle
+        code |= BOTTOM;
+    else if (y > y_max) // above the rectangle
+        code |= TOP;
+ 
+    return code;
+}
+ 
+// Implementing Cohen-Sutherland algorithm
+// Clipping a line from P1 = (x2, y2) to P2 = (x2, y2)
+void cohenSutherlandClip(double x1, double y1,
+                         double x2, double y2)
+{
+    // Compute region codes for P1, P2
+    int code1 = computeCode(x1, y1);
+    int code2 = computeCode(x2, y2);
+ 
+    // Initialize line as outside the rectangular window
+    bool accept = false;
+ 
+    while (true) {
+        if ((code1 == 0) && (code2 == 0)) {
+            // If both endpoints lie within rectangle
+            accept = true;
+            break;
+        }
+        else if (code1 & code2) {
+            // If both endpoints are outside rectangle,
+            // in same region
+            break;
+        }
+        else {
+            // Some segment of line lies within the
+            // rectangle
+            int code_out;
+            double x, y;
+ 
+            // At least one endpoint is outside the
+            // rectangle, pick it.
+            if (code1 != 0)
+                code_out = code1;
+            else
+                code_out = code2;
+ 
+            // Find intersection point;
+            // using formulas y = y1 + slope * (x - x1),
+            // x = x1 + (1 / slope) * (y - y1)
+            if (code_out & TOP) {
+                // point is above the clip rectangle
+                x = x1 + (x2 - x1) * (y_max - y1) / (y2 - y1);
+                y = y_max;
+            }
+            else if (code_out & BOTTOM) {
+                // point is below the rectangle
+                x = x1 + (x2 - x1) * (y_min - y1) / (y2 - y1);
+                y = y_min;
+            }
+            else if (code_out & RIGHT) {
+                // point is to the right of rectangle
+                y = y1 + (y2 - y1) * (x_max - x1) / (x2 - x1);
+                x = x_max;
+            }
+            else if (code_out & LEFT) {
+                // point is to the left of rectangle
+                y = y1 + (y2 - y1) * (x_min - x1) / (x2 - x1);
+                x = x_min;
+            }
+ 
+            // Now intersection point x, y is found
+            // We replace point outside rectangle
+            // by intersection point
+            if (code_out == code1) {
+                x1 = x;
+                y1 = y;
+                code1 = computeCode(x1, y1);
+            }
+            else {
+                x2 = x;
+                y2 = y;
+                code2 = computeCode(x2, y2);
+            }
+        }
+    }
+    if (accept) {
+        cout << "Line accepted from " << x1 << ", "
+             << y1 << " to " << x2 << ", " << y2 << endl;
+        // Here the user can add code to display the rectangle
+        // along with the accepted (portion of) lines
+    }
+    else
+        cout << "Line rejected" << endl;
+}
+ 
+// Driver code
+int main()
+{
+    // First Line segment
+    // P11 = (5, 5), P12 = (7, 7)
+    cohenSutherlandClip(5, 5, 7, 7);
+ 
+    // Second Line segment
+    // P21 = (7, 9), P22 = (11, 4)
+    cohenSutherlandClip(7, 9, 11, 4);
+ 
+    // Third Line segment
+    // P31 = (1, 5), P32 = (4, 1)
+    cohenSutherlandClip(1, 5, 4, 1);
+ 
+    return 0;
+}
+
+// line translation
+
+#include<bits/stdc++.h> 
+#include<graphics.h> 
+  
+using namespace std; 
+  
+// function to translate line 
+void translateLine ( int P[][2], int T[]) 
+{ 
+    /* init graph and line() are used for  
+       representing line through graphical 
+       functions  
+    */
+    int gd = DETECT, gm, errorcode; 
+    initgraph (&gd, &gm, "c:\\tc\\bgi");  
+      
+    // drawing original line using graphics functions 
+    setcolor (2); 
+    line(P[0][0], P[0][1], P[1][0], P[1][1]); 
+  
+    // calculating translated coordinates 
+    P[0][0] = P[0][0] + T[0]; 
+    P[0][1] = P[0][1] + T[1]; 
+    P[1][0] = P[1][0] + T[0]; 
+    P[1][1] = P[1][1] + T[1]; 
+  
+    // drawing translated line using graphics functions 
+    setcolor(3); 
+    line(P[0][0], P[0][1], P[1][0], P[1][1]); 
+    closegraph(); 
+} 
+  
+// driver program 
+int main() 
+{ 
+    int P[2][2] = {5, 8, 12, 18}; // coordinates of point 
+    int T[] = {2, 1}; // translation factor 
+    translateLine (P, T); 
+    return 0; 
+}  
+
+
+//
